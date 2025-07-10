@@ -58,12 +58,43 @@ export default function Home() {
                 🚀 START WITH AI CHAT
               </Button>
             </Link>
-            <Link href="/templates">
+            <Link href="/form">
               <Button size="lg" className="bg-white text-blue-600 border-2 border-white hover:bg-blue-50 px-12 py-6 text-xl font-black shadow-2xl transform hover:scale-105 transition-all">
                 <Palette className="mr-3 h-6 w-6" />
-                📋 VIEW TEMPLATES
+                📋 PROFESSIONAL FORM
               </Button>
             </Link>
+          </div>
+          
+          {/* Feature Choice Section */}
+          <div className="mt-12 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <Bot className="h-12 w-12 text-yellow-300 mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-3">🤖 AI Assistant</h3>
+              <p className="text-blue-100 text-lg mb-6">
+                Let our AI guide you through a conversational process. Just chat and answer questions naturally.
+              </p>
+              <ul className="text-blue-100 space-y-2">
+                <li>✅ Natural conversation</li>
+                <li>✅ Smart follow-up questions</li>
+                <li>✅ Beginner-friendly</li>
+                <li>✅ Fast and easy</li>
+              </ul>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <Palette className="h-12 w-12 text-white mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-3">📋 Professional Form</h3>
+              <p className="text-blue-100 text-lg mb-6">
+                Complete a comprehensive form with all professional fields. Perfect for detailed control.
+              </p>
+              <ul className="text-blue-100 space-y-2">
+                <li>✅ Complete field control</li>
+                <li>✅ Advanced options</li>
+                <li>✅ Professional features</li>
+                <li>✅ Multiple pay dates</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

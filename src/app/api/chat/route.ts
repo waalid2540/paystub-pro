@@ -10,22 +10,34 @@ export async function POST(request: NextRequest) {
     const { message, step } = await request.json();
 
     const prompts = [
-      `You are a helpful AI assistant helping someone create a paystub. The user just said: "${message}". 
-       This is step ${step} of the paystub creation process. 
-       Ask for their employer/company name next. Keep it friendly and professional. Be concise.`,
+      `You are a professional AI assistant helping create a paystub. The user just said: "${message}" (this is their name). 
+       Now ask for their company name. Be professional and friendly. Ask: "Great to meet you! What's the name of the company you work for?"`,
       
       `You are helping create a paystub. The user provided: "${message}" as their company name. 
-       Now ask for their hourly rate or annual salary. Be professional and concise.`,
+       Now ask if they are an employee or contractor. Ask: "Are you a W-2 employee or a 1099 contractor at ${message}?"`,
       
-      `You are helping create a paystub. The user provided: "${message}" as their pay rate. 
-       Now ask for the pay period dates (e.g., "March 1-15, 2024"). Be professional and concise.`,
+      `You are helping create a paystub. The user specified they are: "${message}". 
+       Now ask how they are paid. Ask: "How are you paid - hourly or salary? And what's your rate/salary amount?"`,
       
+      `You are helping create a paystub. The user provided: "${message}" as their pay information. 
+       Now ask about pay frequency. Ask: "How often are you paid? (Weekly, Bi-weekly, Semi-monthly, or Monthly)"`,
+      
+      `You are helping create a paystub. The user provided: "${message}" as their pay frequency. 
+       Now ask for the specific pay period. Ask: "What pay period should this paystub cover? Please provide the start and end dates (e.g., 'January 1-15, 2024')"`,
+       
       `You are helping create a paystub. The user provided: "${message}" as their pay period. 
-       Now ask for the number of hours worked in this period. Be professional and concise.`,
-      
-      `You are helping create a paystub. The user provided: "${message}" as their hours worked. 
-       Say something like "Perfect! I have all the information I need. Let me generate your professional paystub now!" 
-       Be excited and professional.`
+       Now ask for hours worked (if hourly) or confirm salary amount. Ask: "How many hours did you work during this pay period? (If salary, just say 'salary')"`,
+       
+      `You are helping create a paystub. The user provided: "${message}" for hours/salary confirmation. 
+       Now ask for company address. Ask: "What's the company's address? (Street, City, State, ZIP)"`,
+       
+      `You are helping create a paystub. The user provided: "${message}" as the company address. 
+       Now ask for their SSN (last 4 digits only). Ask: "What are the last 4 digits of your Social Security Number? (This is for the paystub display only - we keep all information secure)"`,
+       
+      `You are helping create a paystub. The user provided: "${message}" as their SSN digits. 
+       Say: "Perfect! I have all the information needed to generate your professional paystub. This will include detailed earnings, deductions, taxes, and year-to-date calculations. Ready to generate your paystub?"`,
+       
+      `You are helping create a paystub. Say: "Excellent! Your professional paystub is being generated with all the details including earnings breakdown, tax deductions, and professional formatting. Click the Generate button below!"`
     ];
 
     const completion = await openai.chat.completions.create({
@@ -52,11 +64,16 @@ export async function POST(request: NextRequest) {
     
     // Fallback responses if OpenAI fails
     const fallbackResponses = [
-      "Great! Now I need some information about your employer. What's the company name?",
-      "Perfect! What's your hourly rate or annual salary?",
-      "Excellent! What pay period should this paystub cover? (e.g., March 1-15, 2024)",
-      "Almost done! How many hours did you work in this pay period?",
-      "Perfect! I have everything I need. Let me generate your professional paystub now! 🎉"
+      "Great to meet you! What's the name of the company you work for?",
+      "Are you a W-2 employee or a 1099 contractor at this company?",
+      "How are you paid - hourly or salary? And what's your rate/salary amount?",
+      "How often are you paid? (Weekly, Bi-weekly, Semi-monthly, or Monthly)",
+      "What pay period should this paystub cover? Please provide the start and end dates (e.g., 'January 1-15, 2024')",
+      "How many hours did you work during this pay period? (If salary, just say 'salary')",
+      "What's the company's address? (Street, City, State, ZIP)",
+      "What are the last 4 digits of your Social Security Number? (This is for the paystub display only - we keep all information secure)",
+      "Perfect! I have all the information needed to generate your professional paystub. Ready to generate?",
+      "Excellent! Click the Generate button below to create your professional paystub! 🎉"
     ];
     
     const step = await request.json().then(data => data.step).catch(() => 1);

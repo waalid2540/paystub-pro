@@ -63,8 +63,8 @@ export default function GeneratePage() {
       }]);
       setStep(prev => prev + 1);
       
-      // If we're at step 5, show generate button
-      if (step >= 5) {
+      // If we're at step 9 or higher, show generate button
+      if (step >= 9) {
         setTimeout(() => {
           setMessages(prev => [...prev, {
             type: "ai",
@@ -201,28 +201,28 @@ export default function GeneratePage() {
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 1 ? 'bg-blue-100' : 'bg-gray-100'}`}>
                       <User className="h-4 w-4" />
                     </div>
-                    <span className="font-medium">Personal Info</span>
-                  </div>
-                  <div className={`flex items-center space-x-3 ${step >= 2 ? 'text-blue-600' : 'text-gray-400'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 2 ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                      <Building className="h-4 w-4" />
-                    </div>
-                    <span className="font-medium">Employer Details</span>
+                    <span className="font-medium">Name & Company</span>
                   </div>
                   <div className={`flex items-center space-x-3 ${step >= 3 ? 'text-blue-600' : 'text-gray-400'}`}>
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 3 ? 'bg-blue-100' : 'bg-gray-100'}`}>
+                      <Building className="h-4 w-4" />
+                    </div>
+                    <span className="font-medium">Employment Type</span>
+                  </div>
+                  <div className={`flex items-center space-x-3 ${step >= 5 ? 'text-blue-600' : 'text-gray-400'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 5 ? 'bg-blue-100' : 'bg-gray-100'}`}>
                       <DollarSign className="h-4 w-4" />
                     </div>
-                    <span className="font-medium">Pay Information</span>
+                    <span className="font-medium">Pay & Frequency</span>
                   </div>
-                  <div className={`flex items-center space-x-3 ${step >= 4 ? 'text-blue-600' : 'text-gray-400'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 4 ? 'bg-blue-100' : 'bg-gray-100'}`}>
+                  <div className={`flex items-center space-x-3 ${step >= 7 ? 'text-blue-600' : 'text-gray-400'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 7 ? 'bg-blue-100' : 'bg-gray-100'}`}>
                       <Calendar className="h-4 w-4" />
                     </div>
-                    <span className="font-medium">Pay Period</span>
+                    <span className="font-medium">Hours & Address</span>
                   </div>
-                  <div className={`flex items-center space-x-3 ${step >= 5 ? 'text-green-600' : 'text-gray-400'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 5 ? 'bg-green-100' : 'bg-gray-100'}`}>
+                  <div className={`flex items-center space-x-3 ${step >= 10 ? 'text-green-600' : 'text-gray-400'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 10 ? 'bg-green-100' : 'bg-gray-100'}`}>
                       <Download className="h-4 w-4" />
                     </div>
                     <span className="font-medium">Generate & Download</span>
@@ -277,7 +277,7 @@ export default function GeneratePage() {
               
               {/* Input */}
               <div className="border-t p-4">
-                {step >= 6 ? (
+                {step >= 10 ? (
                   <div className="text-center">
                     <Button 
                       onClick={handleGeneratePDF}
