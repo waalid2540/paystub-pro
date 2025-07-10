@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaystubPro - AI-Powered HR Suite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .animate-bounce {
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+            50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="file-text" class="h-8 w-8 text-blue-600"></i>
+                    <span class="text-2xl font-bold text-gray-900">PaystubPro</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-blue-600">Features</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-blue-600">Pricing</a>
+                    <a href="#templates" class="text-gray-600 hover:text-blue-600">Templates</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button onclick="openGeneratePage()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium">
+                        Generate Paystub
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-4 inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
+                AI-Powered HR Suite
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                Professional Paystubs in 
+                <span class="text-blue-600">60 Seconds</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Generate professional paystubs, contracts, and manage your workforce with our AI-powered platform. 
+                Perfect for freelancers, small businesses, and self-employed individuals.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="openGeneratePage()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium flex items-center justify-center">
+                    <i data-lucide="bot" class="mr-2 h-5 w-5"></i>
+                    Start with AI Chat
+                </button>
+                <button class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-medium flex items-center justify-center hover:bg-gray-50">
+                    <i data-lucide="palette" class="mr-2 h-5 w-5"></i>
+                    View Templates
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Everything You Need</h2>
+                <p class="text-xl text-gray-600">One platform for all your HR document needs</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border-2 border-gray-200 hover:border-blue-200 transition-colors rounded-xl p-6">
+                    <i data-lucide="bot" class="h-12 w-12 text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">AI-Powered Generation</h3>
+                    <p class="text-gray-600">Smart chatbot collects your information and generates professional documents instantly</p>
+                </div>
+                <div class="border-2 border-gray-200 hover:border-blue-200 transition-colors rounded-xl p-6">
+                    <i data-lucide="download" class="h-12 w-12 text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">One-Click Download</h3>
+                    <p class="text-gray-600">Download high-quality PDFs instantly. No complicated processes or waiting</p>
+                </div>
+                <div class="border-2 border-gray-200 hover:border-blue-200 transition-colors rounded-xl p-6">
+                    <i data-lucide="palette" class="h-12 w-12 text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Professional Templates</h3>
+                    <p class="text-gray-600">Choose from multiple color themes and designs that look professional and trustworthy</p>
+                </div>
+                <div class="border-2 border-gray-200 hover:border-blue-200 transition-colors rounded-xl p-6">
+                    <i data-lucide="shield" class="h-12 w-12 text-red-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Legal Compliance</h3>
+                    <p class="text-gray-600">All templates meet legal requirements and include proper tax calculations</p>
+                </div>
+                <div class="border-2 border-gray-200 hover:border-blue-200 transition-colors rounded-xl p-6">
+                    <i data-lucide="clock" class="h-12 w-12 text-orange-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Time Tracking</h3>
+                    <p class="text-gray-600">Track hours, manage schedules, and automate payroll calculations</p>
+                </div>
+                <div class="border-2 border-gray-200 hover:border-blue-200 transition-colors rounded-xl p-6">
+                    <i data-lucide="file-text" class="h-12 w-12 text-indigo-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Contract Generator</h3>
+                    <p class="text-gray-600">Create employment contracts, NDAs, and freelance agreements with AI assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600">Choose the plan that works for you</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="border-2 border-gray-200 rounded-xl bg-white p-8">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-semibold mb-4">One-Time</h3>
+                        <div class="text-4xl font-bold text-gray-900">
+                            $5.99
+                            <span class="text-lg font-normal text-gray-600">/paystub</span>
+                        </div>
+                        <p class="text-gray-600 mt-2">Perfect for occasional use</p>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="h-5 w-5 text-green-500 mr-2"></i>
+                            <span>1 Professional Paystub</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="h-5 w-5 text-green-500 mr-2"></i>
+                            <span>AI-Powered Generation</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="h-5 w-5 text-green-500 mr-2"></i>
+                            <span>Multiple Color Themes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="h-5 w-5 text-green-500 mr-2"></i>
+                            <span>Instant PDF Download</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg font-medium">
+                        Get Started
+                    </button>
+                </div>
+                
+                <div class="border-2 border-blue-500 rounded-xl bg-white p-8 relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        Most Popular
+                    </div>
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-semibold mb-4">Unlimited</h3>
+                        <div class="text-4xl font-bold text-gray-900">
+                            $7.99
+                            <span class="text-lg font-normal text-gray-600">/month</span>
+                        </div>
+                        <p class="text-gray-600 mt-2">For businesses and frequent users</p>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="h-5 w-5 text-green-500 mr-2"></i>
+                            <span>Unlimited Paystubs</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="h-5 w-5 text-green-500 mr-2"></i>
+                            <span>AI Contract Generator</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="h-5 w-5 text-green-500 mr-2"></i>
+                            <span>Time Tracking & Scheduling</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="h-5 w-5 text-green-500 mr-2"></i>
+                            <span>Priority Support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="h-5 w-5 text-green-500 mr-2"></i>
+                            <span>Team Management</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium">
+                        Start Free Trial
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Demo Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">See AI in Action</h2>
+                <p class="text-xl text-gray-600">Experience our intelligent paystub generation</p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-2xl p-8">
+                <div class="bg-white rounded-xl shadow-sm">
+                    <div class="border-b p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-t-xl">
+                        <div class="flex items-center">
+                            <i data-lucide="message-square" class="h-5 w-5 text-blue-600 mr-2"></i>
+                            <h3 class="font-semibold text-gray-900">AI Paystub Assistant</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 space-y-4 h-96 overflow-y-auto" id="chatMessages">
+                        <div class="flex justify-start">
+                            <div class="bg-gray-100 text-gray-900 rounded-lg px-4 py-3 max-w-[80%]">
+                                Hi! I'm your AI assistant. I'll help you create a professional paystub quickly. What's your full name?
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t p-4">
+                        <div class="flex space-x-2">
+                            <input 
+                                type="text" 
+                                id="userInput"
+                                placeholder="Type your response..."
+                                class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                            <button 
+                                onclick="sendMessage()"
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium"
+                            >
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="file-text" class="h-6 w-6"></i>
+                        <span class="text-xl font-bold">PaystubPro</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Professional HR documents powered by AI. Fast, secure, and legally compliant.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Product</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Generate Paystub</a></li>
+                        <li><a href="#" class="hover:text-white">Templates</a></li>
+                        <li><a href="#" class="hover:text-white">Features</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 PaystubPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        let messageCount = 0;
+        const responses = [
+            "Great! Now I need some information about your employer. What's the company name?",
+            "Perfect! What's your hourly rate or annual salary?",
+            "Excellent! What pay period should this paystub cover? (e.g., March 1-15, 2024)",
+            "Almost done! How many hours did you work in this pay period?",
+            "Perfect! I have everything I need. Let me generate your professional paystub now. 🎉"
+        ];
+        
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const messages = document.getElementById('chatMessages');
+            
+            if (!input.value.trim()) return;
+            
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'flex justify-end';
+            userMessage.innerHTML = `
+                <div class="bg-blue-600 text-white rounded-lg px-4 py-3 max-w-[80%]">
+                    ${input.value}
+                </div>
+            `;
+            messages.appendChild(userMessage);
+            
+            input.value = '';
+            
+            // Add typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'flex justify-start';
+            typingIndicator.innerHTML = `
+                <div class="bg-gray-100 text-gray-900 rounded-lg px-4 py-3">
+                    <div class="flex space-x-1">
+                        <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                        <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                        <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    </div>
+                </div>
+            `;
+            messages.appendChild(typingIndicator);
+            
+            // Scroll to bottom
+            messages.scrollTop = messages.scrollHeight;
+            
+            // Add AI response after delay
+            setTimeout(() => {
+                messages.removeChild(typingIndicator);
+                
+                const aiMessage = document.createElement('div');
+                aiMessage.className = 'flex justify-start';
+                aiMessage.innerHTML = `
+                    <div class="bg-gray-100 text-gray-900 rounded-lg px-4 py-3 max-w-[80%]">
+                        ${responses[messageCount] || "Thank you! Your paystub is ready for download."}
+                    </div>
+                `;
+                messages.appendChild(aiMessage);
+                
+                messageCount++;
+                messages.scrollTop = messages.scrollHeight;
+            }, 1500);
+        }
+        
+        function openGeneratePage() {
+            alert('🚀 Generate page would open here! This demo shows the AI chat interface.');
+        }
+        
+        // Allow Enter key to send message
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
