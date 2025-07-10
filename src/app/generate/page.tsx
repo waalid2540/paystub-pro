@@ -159,7 +159,7 @@ export default function GeneratePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -305,7 +305,7 @@ export default function GeneratePage() {
                       onChange={(e) => setUserInput(e.target.value)}
                       onKeyPress={handleKeyPress}
                       placeholder="Type your response..."
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="flex-1 px-6 py-4 border-2 border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg text-gray-900 font-medium bg-white placeholder-gray-500"
                       disabled={isTyping}
                     />
                     <Button 
