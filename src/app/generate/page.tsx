@@ -341,11 +341,11 @@ export default function GeneratePage() {
                       </h3>
                       <div className="grid grid-cols-5 gap-4">
                         {[
-                          { id: 'corporate', name: 'Corporate Blue', color: 'bg-blue-600', accent: 'border-blue-500' },
-                          { id: 'executive', name: 'Executive Gray', color: 'bg-gray-600', accent: 'border-gray-500' },
-                          { id: 'modern', name: 'Modern Green', color: 'bg-green-600', accent: 'border-green-500' },
-                          { id: 'classic', name: 'Classic Purple', color: 'bg-purple-600', accent: 'border-purple-500' },
-                          { id: 'professional', name: 'Professional Pink', color: 'bg-pink-600', accent: 'border-pink-500' }
+                          { id: 'corporate', name: 'PayStubs Blue', color: 'bg-blue-600', accent: 'border-blue-500' },
+                          { id: 'grey', name: 'Professional Grey', color: 'bg-gray-600', accent: 'border-gray-500' },
+                          { id: 'green', name: 'Classic Green', color: 'bg-green-600', accent: 'border-green-500' },
+                          { id: 'blue', name: 'Corporate Blue', color: 'bg-blue-700', accent: 'border-blue-600' },
+                          { id: 'black', name: 'Sleek Black', color: 'bg-gray-900', accent: 'border-gray-700' }
                         ].map((theme) => (
                           <button
                             key={theme.id}
