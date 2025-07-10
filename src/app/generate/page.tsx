@@ -30,6 +30,7 @@ export default function GeneratePage() {
   const [isTyping, setIsTyping] = useState(false);
   const [userResponses, setUserResponses] = useState<string[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [selectedTheme, setSelectedTheme] = useState('corporate');
 
   const handleSendMessage = async () => {
     if (!userInput.trim()) return;
@@ -115,7 +116,9 @@ export default function GeneratePage() {
           payRate: userResponses[2] || '$15.00',
           payPeriod: userResponses[3] || 'Current Period',
           hoursWorked: userResponses[4] || '40',
-          colorTheme: 'blue'
+          colorTheme: selectedTheme,
+          companyAddress: userResponses[6] || '',
+          employeeSSN: userResponses[7] || '1234'
         }),
       });
 
@@ -278,24 +281,56 @@ export default function GeneratePage() {
               {/* Input */}
               <div className="border-t p-4">
                 {step >= 10 ? (
-                  <div className="text-center">
-                    <Button 
-                      onClick={handleGeneratePDF}
-                      disabled={isGenerating}
-                      className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg"
-                    >
-                      {isGenerating ? (
-                        <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Generating PDF...
-                        </>
-                      ) : (
-                        <>
-                          <Download className="mr-2 h-5 w-5" />
-                          Generate & Download PDF
-                        </>
-                      )}
-                    </Button>
+                  <div className="space-y-6">
+                    {/* Color Theme Selector */}
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
+                        🎨 Choose Your Paystub Color Theme
+                      </h3>
+                      <div className="grid grid-cols-5 gap-3">
+                        {[
+                          { id: 'corporate', name: 'Corporate Blue', color: 'bg-blue-600' },
+                          { id: 'executive', name: 'Executive Gray', color: 'bg-gray-600' },
+                          { id: 'modern', name: 'Modern Green', color: 'bg-green-600' },
+                          { id: 'classic', name: 'Classic Purple', color: 'bg-purple-600' },
+                          { id: 'professional', name: 'Professional Pink', color: 'bg-pink-600' }
+                        ].map((theme) => (
+                          <button
+                            key={theme.id}
+                            onClick={() => setSelectedTheme(theme.id)}
+                            className={`p-3 rounded-lg border-2 transition-all ${
+                              selectedTheme === theme.id
+                                ? 'border-blue-500 bg-blue-50'
+                                : 'border-gray-300 hover:border-gray-400'
+                            }`}
+                          >
+                            <div className={`w-full h-8 ${theme.color} rounded mb-2`}></div>
+                            <div className="text-xs font-medium text-gray-700">{theme.name}</div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Generate Button */}
+                    <div className="text-center">
+                      <Button 
+                        onClick={handleGeneratePDF}
+                        disabled={isGenerating}
+                        className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg"
+                      >
+                        {isGenerating ? (
+                          <>
+                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                            Generating PDF...
+                          </>
+                        ) : (
+                          <>
+                            <Download className="mr-2 h-5 w-5" />
+                            Generate & Download PDF
+                          </>
+                        )}
+                      </Button>
+                    </div>
                   </div>
                 ) : (
                   <div className="flex space-x-2">
