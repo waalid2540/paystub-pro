@@ -14,7 +14,12 @@ import {
   Building,
   DollarSign,
   Calendar,
-  Download
+  Download,
+  Sparkles,
+  Shield,
+  CheckCircle2,
+  Send,
+  Palette
 } from "lucide-react";
 
 export default function GeneratePage() {
@@ -162,73 +167,101 @@ export default function GeneratePage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-white/80 backdrop-blur-xl shadow-lg border-b border-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
-                <ArrowLeft className="h-5 w-5" />
-                <span>Back</span>
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center space-x-6">
+              <Link href="/" className="flex items-center space-x-3 text-slate-600 hover:text-blue-600 transition-all duration-200 group">
+                <div className="p-2 rounded-xl bg-slate-100 group-hover:bg-blue-100 transition-colors">
+                  <ArrowLeft className="h-5 w-5" />
+                </div>
+                <span className="font-semibold">Back to Home</span>
               </Link>
-              <div className="flex items-center space-x-2">
-                <FileText className="h-8 w-8 text-blue-600" />
-                <span className="text-2xl font-bold text-gray-900">PaystubPro</span>
+              <div className="flex items-center space-x-3">
+                <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600">
+                  <FileText className="h-8 w-8 text-white" />
+                </div>
+                <span className="text-2xl font-black text-slate-900">PaystubPro</span>
+                <Badge className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold px-3 py-1">
+                  Enterprise AI
+                </Badge>
               </div>
             </div>
-            <Badge className="bg-green-100 text-green-800">
-              AI Assistant Active
-            </Badge>
+            <div className="flex items-center space-x-4">
+              <Badge className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 font-bold px-4 py-2 border border-green-200">
+                <Sparkles className="h-4 w-4 mr-2" />
+                AI Assistant Active
+              </Badge>
+              <Shield className="h-6 w-6 text-blue-600" />
+            </div>
           </div>
         </div>
       </header>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid lg:grid-cols-3 gap-12">
           {/* Progress Steps */}
           <div className="lg:col-span-1">
-            <Card className="sticky top-8">
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Bot className="mr-2 h-5 w-5 text-blue-600" />
-                  Generation Progress
+            <Card className="sticky top-8 border-0 shadow-2xl bg-white/70 backdrop-blur-xl">
+              <CardHeader className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-t-xl">
+                <CardTitle className="flex items-center text-xl">
+                  <div className="p-2 bg-white/20 rounded-lg mr-3">
+                    <Bot className="h-6 w-6" />
+                  </div>
+                  Enterprise AI Process
                 </CardTitle>
-                <CardDescription>
-                  Follow the AI assistant to complete your paystub
+                <CardDescription className="text-blue-100 font-medium">
+                  Professional-grade paystub generation workflow
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className={`flex items-center space-x-3 ${step >= 1 ? 'text-blue-600' : 'text-gray-400'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 1 ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                      <User className="h-4 w-4" />
+              <CardContent className="p-8">
+                <div className="space-y-6">
+                  <div className={`flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 ${step >= 1 ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200' : 'bg-gray-50 border-2 border-gray-200'}`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${step >= 1 ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg' : 'bg-gray-300 text-gray-500'}`}>
+                      {step > 1 ? <CheckCircle2 className="h-6 w-6" /> : <User className="h-6 w-6" />}
                     </div>
-                    <span className="font-medium">Name & Company</span>
+                    <div>
+                      <span className={`font-bold text-lg ${step >= 1 ? 'text-blue-700' : 'text-gray-500'}`}>Personal Details</span>
+                      <p className="text-sm text-gray-600 font-medium">Name & Company Info</p>
+                    </div>
                   </div>
-                  <div className={`flex items-center space-x-3 ${step >= 3 ? 'text-blue-600' : 'text-gray-400'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 3 ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                      <Building className="h-4 w-4" />
+                  <div className={`flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 ${step >= 3 ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200' : 'bg-gray-50 border-2 border-gray-200'}`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${step >= 3 ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg' : 'bg-gray-300 text-gray-500'}`}>
+                      {step > 3 ? <CheckCircle2 className="h-6 w-6" /> : <Building className="h-6 w-6" />}
                     </div>
-                    <span className="font-medium">Employment Type</span>
+                    <div>
+                      <span className={`font-bold text-lg ${step >= 3 ? 'text-blue-700' : 'text-gray-500'}`}>Employment Status</span>
+                      <p className="text-sm text-gray-600 font-medium">W-2 or 1099 Classification</p>
+                    </div>
                   </div>
-                  <div className={`flex items-center space-x-3 ${step >= 5 ? 'text-blue-600' : 'text-gray-400'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 5 ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                      <DollarSign className="h-4 w-4" />
+                  <div className={`flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 ${step >= 5 ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200' : 'bg-gray-50 border-2 border-gray-200'}`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${step >= 5 ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg' : 'bg-gray-300 text-gray-500'}`}>
+                      {step > 5 ? <CheckCircle2 className="h-6 w-6" /> : <DollarSign className="h-6 w-6" />}
                     </div>
-                    <span className="font-medium">Pay & Frequency</span>
+                    <div>
+                      <span className={`font-bold text-lg ${step >= 5 ? 'text-blue-700' : 'text-gray-500'}`}>Compensation</span>
+                      <p className="text-sm text-gray-600 font-medium">Salary & Pay Frequency</p>
+                    </div>
                   </div>
-                  <div className={`flex items-center space-x-3 ${step >= 7 ? 'text-blue-600' : 'text-gray-400'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 7 ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                      <Calendar className="h-4 w-4" />
+                  <div className={`flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 ${step >= 7 ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200' : 'bg-gray-50 border-2 border-gray-200'}`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${step >= 7 ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg' : 'bg-gray-300 text-gray-500'}`}>
+                      {step > 7 ? <CheckCircle2 className="h-6 w-6" /> : <Calendar className="h-6 w-6" />}
                     </div>
-                    <span className="font-medium">Hours & Address</span>
+                    <div>
+                      <span className={`font-bold text-lg ${step >= 7 ? 'text-blue-700' : 'text-gray-500'}`}>Time & Location</span>
+                      <p className="text-sm text-gray-600 font-medium">Hours & Address Details</p>
+                    </div>
                   </div>
-                  <div className={`flex items-center space-x-3 ${step >= 10 ? 'text-green-600' : 'text-gray-400'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 10 ? 'bg-green-100' : 'bg-gray-100'}`}>
-                      <Download className="h-4 w-4" />
+                  <div className={`flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 ${step >= 10 ? 'bg-gradient-to-r from-emerald-50 to-green-50 border-2 border-emerald-200' : 'bg-gray-50 border-2 border-gray-200'}`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${step >= 10 ? 'bg-gradient-to-br from-emerald-500 to-green-600 text-white shadow-lg' : 'bg-gray-300 text-gray-500'}`}>
+                      {step >= 10 ? <CheckCircle2 className="h-6 w-6" /> : <Download className="h-6 w-6" />}
                     </div>
-                    <span className="font-medium">Generate & Download</span>
+                    <div>
+                      <span className={`font-bold text-lg ${step >= 10 ? 'text-emerald-700' : 'text-gray-500'}`}>Generation</span>
+                      <p className="text-sm text-gray-600 font-medium">Professional PDF Export</p>
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -237,41 +270,59 @@ export default function GeneratePage() {
 
           {/* Chat Interface */}
           <div className="lg:col-span-2">
-            <Card className="h-[600px] flex flex-col">
-              <CardHeader className="border-b bg-gradient-to-r from-blue-50 to-indigo-50">
-                <CardTitle className="flex items-center">
-                  <MessageSquare className="mr-2 h-5 w-5 text-blue-600" />
-                  AI Paystub Assistant
+            <Card className="h-[700px] flex flex-col border-0 shadow-2xl bg-white/80 backdrop-blur-xl">
+              <CardHeader className="border-b border-blue-100 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white rounded-t-xl">
+                <CardTitle className="flex items-center text-2xl">
+                  <div className="p-3 bg-white/20 rounded-xl mr-4">
+                    <MessageSquare className="h-7 w-7" />
+                  </div>
+                  Enterprise AI Assistant
+                  <Sparkles className="ml-3 h-6 w-6 text-yellow-300" />
                 </CardTitle>
-                <CardDescription>
-                  Chat with our AI to generate your professional paystub
+                <CardDescription className="text-blue-100 text-lg font-medium">
+                  Professional-grade conversational AI for enterprise paystub generation
                 </CardDescription>
               </CardHeader>
               
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-6 space-y-4">
+              <div className="flex-1 overflow-y-auto p-8 space-y-6 bg-gradient-to-br from-slate-50/50 to-blue-50/30">
                 {messages.map((message, index) => (
                   <div
                     key={index}
-                    className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                    className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-4 duration-500`}
                   >
-                    <div className={`max-w-[80%] rounded-lg px-4 py-3 ${
+                    <div className={`max-w-[85%] rounded-2xl px-6 py-4 shadow-lg ${
                       message.type === 'user' 
-                        ? 'bg-blue-600 text-white' 
-                        : 'bg-gray-100 text-gray-900'
+                        ? 'bg-gradient-to-br from-blue-600 to-indigo-700 text-white border border-blue-500' 
+                        : 'bg-white text-slate-800 border border-slate-200 shadow-xl'
                     }`}>
-                      {message.content}
+                      <div className="flex items-start space-x-3">
+                        {message.type === 'ai' && (
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mt-1 flex-shrink-0">
+                            <Bot className="h-4 w-4 text-white" />
+                          </div>
+                        )}
+                        <div className={`text-base leading-relaxed ${message.type === 'user' ? 'font-medium' : 'font-normal'}`}>
+                          {message.content}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
                 
                 {isTyping && (
-                  <div className="flex justify-start">
-                    <div className="bg-gray-100 text-gray-900 rounded-lg px-4 py-3">
-                      <div className="flex space-x-1">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  <div className="flex justify-start animate-in fade-in slide-in-from-bottom-4 duration-300">
+                    <div className="bg-white text-slate-800 rounded-2xl px-6 py-4 shadow-xl border border-slate-200">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                          <Bot className="h-4 w-4 text-white" />
+                        </div>
+                        <div className="flex space-x-1">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce"></div>
+                          <div className="w-3 h-3 bg-indigo-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                          <div className="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        </div>
+                        <span className="text-sm text-slate-600 font-medium">AI is thinking...</span>
                       </div>
                     </div>
                   </div>
@@ -279,33 +330,37 @@ export default function GeneratePage() {
               </div>
               
               {/* Input */}
-              <div className="border-t p-4">
+              <div className="border-t border-slate-200 p-8 bg-white">
                 {step >= 10 ? (
-                  <div className="space-y-6">
+                  <div className="space-y-8">
                     {/* Color Theme Selector */}
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-                        🎨 Choose Your Paystub Color Theme
+                    <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 border border-slate-200">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center flex items-center justify-center">
+                        <Palette className="mr-3 h-7 w-7 text-blue-600" />
+                        🎨 Professional Color Themes
                       </h3>
-                      <div className="grid grid-cols-5 gap-3">
+                      <div className="grid grid-cols-5 gap-4">
                         {[
-                          { id: 'corporate', name: 'Corporate Blue', color: 'bg-blue-600' },
-                          { id: 'executive', name: 'Executive Gray', color: 'bg-gray-600' },
-                          { id: 'modern', name: 'Modern Green', color: 'bg-green-600' },
-                          { id: 'classic', name: 'Classic Purple', color: 'bg-purple-600' },
-                          { id: 'professional', name: 'Professional Pink', color: 'bg-pink-600' }
+                          { id: 'corporate', name: 'Corporate Blue', color: 'bg-blue-600', accent: 'border-blue-500' },
+                          { id: 'executive', name: 'Executive Gray', color: 'bg-gray-600', accent: 'border-gray-500' },
+                          { id: 'modern', name: 'Modern Green', color: 'bg-green-600', accent: 'border-green-500' },
+                          { id: 'classic', name: 'Classic Purple', color: 'bg-purple-600', accent: 'border-purple-500' },
+                          { id: 'professional', name: 'Professional Pink', color: 'bg-pink-600', accent: 'border-pink-500' }
                         ].map((theme) => (
                           <button
                             key={theme.id}
                             onClick={() => setSelectedTheme(theme.id)}
-                            className={`p-3 rounded-lg border-2 transition-all ${
+                            className={`p-4 rounded-xl border-3 transition-all duration-300 transform hover:scale-105 ${
                               selectedTheme === theme.id
-                                ? 'border-blue-500 bg-blue-50'
-                                : 'border-gray-300 hover:border-gray-400'
+                                ? `${theme.accent} bg-white shadow-xl ring-4 ring-blue-200`
+                                : 'border-slate-300 hover:border-slate-400 bg-white shadow-lg hover:shadow-xl'
                             }`}
                           >
-                            <div className={`w-full h-8 ${theme.color} rounded mb-2`}></div>
-                            <div className="text-xs font-medium text-gray-700">{theme.name}</div>
+                            <div className={`w-full h-12 ${theme.color} rounded-lg mb-3 shadow-lg`}></div>
+                            <div className="text-sm font-bold text-slate-700">{theme.name}</div>
+                            {selectedTheme === theme.id && (
+                              <CheckCircle2 className="h-5 w-5 text-blue-600 mx-auto mt-2" />
+                            )}
                           </button>
                         ))}
                       </div>
@@ -316,38 +371,41 @@ export default function GeneratePage() {
                       <Button 
                         onClick={handleGeneratePDF}
                         disabled={isGenerating}
-                        className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg"
+                        className="bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 text-white px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-emerald-500"
                       >
                         {isGenerating ? (
                           <>
-                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                            Generating PDF...
+                            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
+                            Generating Enterprise PDF...
                           </>
                         ) : (
                           <>
-                            <Download className="mr-2 h-5 w-5" />
-                            Generate & Download PDF
+                            <Download className="mr-3 h-6 w-6" />
+                            🚀 Generate Professional PDF
                           </>
                         )}
                       </Button>
                     </div>
                   </div>
                 ) : (
-                  <div className="flex space-x-2">
-                    <input
-                      type="text"
-                      value={userInput}
-                      onChange={(e) => setUserInput(e.target.value)}
-                      onKeyPress={handleKeyPress}
-                      placeholder="Type your response..."
-                      className="flex-1 px-6 py-4 border-2 border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg text-gray-900 font-medium bg-white placeholder-gray-500"
-                      disabled={isTyping}
-                    />
+                  <div className="flex space-x-4">
+                    <div className="flex-1 relative">
+                      <input
+                        type="text"
+                        value={userInput}
+                        onChange={(e) => setUserInput(e.target.value)}
+                        onKeyPress={handleKeyPress}
+                        placeholder="Type your professional response..."
+                        className="w-full px-8 py-6 border-2 border-slate-300 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-200 focus:border-blue-500 text-lg text-slate-900 font-medium bg-white placeholder-slate-500 shadow-lg transition-all duration-300"
+                        disabled={isTyping}
+                      />
+                    </div>
                     <Button 
                       onClick={handleSendMessage}
                       disabled={!userInput.trim() || isTyping}
-                      className="bg-blue-600 hover:bg-blue-700"
+                      className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 px-8 py-6 rounded-2xl text-lg font-bold shadow-xl transform hover:scale-105 transition-all duration-300"
                     >
+                      <Send className="mr-2 h-5 w-5" />
                       Send
                     </Button>
                   </div>
@@ -358,30 +416,39 @@ export default function GeneratePage() {
         </div>
 
         {/* Quick Actions */}
-        <div className="mt-8">
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-              <CardDescription>
-                Common paystub types to get you started faster
+        <div className="mt-12">
+          <Card className="border-0 shadow-2xl bg-white/80 backdrop-blur-xl">
+            <CardHeader className="bg-gradient-to-r from-slate-800 to-slate-900 text-white rounded-t-xl">
+              <CardTitle className="text-2xl font-bold flex items-center">
+                <Sparkles className="mr-3 h-6 w-6 text-yellow-400" />
+                Enterprise Quick Start Templates
+              </CardTitle>
+              <CardDescription className="text-slate-300 text-lg">
+                Professional paystub templates for common employment scenarios
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-3 gap-4">
-                <Button variant="outline" className="h-auto p-4 flex flex-col items-center space-y-2">
-                  <User className="h-8 w-8 text-blue-600" />
-                  <span className="font-medium">Self-Employed</span>
-                  <span className="text-sm text-gray-500">For freelancers and contractors</span>
+            <CardContent className="p-8">
+              <div className="grid md:grid-cols-3 gap-6">
+                <Button variant="outline" className="h-auto p-8 flex flex-col items-center space-y-4 border-2 border-blue-200 hover:border-blue-400 bg-gradient-to-br from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                  <div className="p-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl">
+                    <User className="h-10 w-10 text-white" />
+                  </div>
+                  <span className="font-bold text-xl text-blue-700">Self-Employed</span>
+                  <span className="text-sm text-slate-600 font-medium text-center">For freelancers, consultants, and independent contractors</span>
                 </Button>
-                <Button variant="outline" className="h-auto p-4 flex flex-col items-center space-y-2">
-                  <Building className="h-8 w-8 text-green-600" />
-                  <span className="font-medium">Small Business</span>
-                  <span className="text-sm text-gray-500">For business owners</span>
+                <Button variant="outline" className="h-auto p-8 flex flex-col items-center space-y-4 border-2 border-green-200 hover:border-green-400 bg-gradient-to-br from-green-50 to-emerald-50 hover:from-green-100 hover:to-emerald-100 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                  <div className="p-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl">
+                    <Building className="h-10 w-10 text-white" />
+                  </div>
+                  <span className="font-bold text-xl text-green-700">Small Business</span>
+                  <span className="text-sm text-slate-600 font-medium text-center">For business owners and LLC members</span>
                 </Button>
-                <Button variant="outline" className="h-auto p-4 flex flex-col items-center space-y-2">
-                  <DollarSign className="h-8 w-8 text-purple-600" />
-                  <span className="font-medium">Hourly Employee</span>
-                  <span className="text-sm text-gray-500">For hourly workers</span>
+                <Button variant="outline" className="h-auto p-8 flex flex-col items-center space-y-4 border-2 border-purple-200 hover:border-purple-400 bg-gradient-to-br from-purple-50 to-indigo-50 hover:from-purple-100 hover:to-indigo-100 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                  <div className="p-4 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl">
+                    <DollarSign className="h-10 w-10 text-white" />
+                  </div>
+                  <span className="font-bold text-xl text-purple-700">Hourly Employee</span>
+                  <span className="text-sm text-slate-600 font-medium text-center">For hourly workers and part-time employees</span>
                 </Button>
               </div>
             </CardContent>
